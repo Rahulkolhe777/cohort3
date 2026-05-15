@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #212121;
+  color: white;
+}
+main {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr 1fr 1fr 1fr 2.5fr;
+  gap: 10px;
+  padding: 10px;
+}
+div {
+  border-radius: 20px;
+  border: 3px solid black;
+}
+div.one {
+  /* grid-area: row-start / column-start / row-end / column-end; */
+  grid-area: 1 / 1 / 3 / 3;
+  padding: 1rem;
+}
+div.two {
+  grid-row: 1 / 3;
+  background-image: url("https://pbs.twimg.com/media/HBmNG5UaUAAB38J.jpg?format=jpg&name=thumb");
+  background-position: center;
+  background-size: contain;
+}
+div.three {
+  grid-row: 1 / 3;
+  background-image: url("https://cdn.dribbble.com/userupload/27260900/file/original-8e3db58a34fa8d4b4b24e004e538fdc2.png?resize=1504x1128&vertical=center");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+div.four {
+  background-image: url("https://img.freepik.com/premium-vector/instagram-tiktok-facebook-whatsapp-x-twitter-youtube-telegram-white-outline-social-media-icons_277909-1170.jpg");
+  background-position-y: 5%;
+  background-size: cover;
+}
+div.five {
+  grid-row: 3 / 5;
+  background-image: url("https://images.pexels.com/photos/4098343/pexels-photo-4098343.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background-position: center;
+  background-size: cover;
+}
+div.six {
+  grid-row: 3 / 5;
+  padding: 2rem;
+}
+
+div.seven {
+  grid-area: 3 / 3 / 5 / 5;
+  background-image: url("https://cdn.dribbble.com/userupload/5790924/file/original-56f88c5d8ac816d535c3868f9088a645.png?resize=1504x1128&vertical=center");
+  background-position: center;
+  background-size: cover;
+}
+div.eight {
+  grid-row: 2 / 4;
+  padding: 2rem;
+}
+div.nine {
+  background-image: url("https://customer.io/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2Fonirtmj2%2Fproduction%2F02c9ae8769844e9499e6d842f122f412690e8a6e-2560x1440.png%3Frect%3D128%2C0%2C2304%2C1440%26w%3D1280%26h%3D800%26fit%3Dfill%26auto%3Dformat&w=1920&q=80");
+  background-position: center;
+  background-size: cover;
+}
+div.ten {
+  grid-area: 5 / 1 / 6 / 4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+}
+div.eleven {
+  grid-area: 5 / 4 / 6 /6;
+  padding: 2rem;
+}
