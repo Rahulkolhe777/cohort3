@@ -1,0 +1,272 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+main{
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+.page1{
+    margin: 15px;
+    height: 96vh;
+    width: calc(100vw - 30px);
+    background-image: url(./bgc.avif);
+    background-size: cover;
+    background-position: center;
+}
+
+nav{
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+    align-items: center;
+    height: 90px;
+}
+
+nav div{
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+
+}
+
+nav button{
+    padding: 15px 20px;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    color: white;
+}
+
+
+.center{
+    height: 91%;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center h1{
+    display: flex;
+    justify-content: center;
+    font-size: 8vw;
+}
+
+.center h3{
+        display: flex;
+    justify-content: center;
+    font-size: 2vw;
+}
+
+.page2{
+    margin: 15px;
+    margin-top: 25px;
+    min-height: 95vh;
+    width: calc(100vw - 30px);
+    background-color: #F5F7F6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+.page2 span{
+    display: flex;
+    justify-content: center;
+}
+.page2 h1{
+    font-size: 5vw;
+    display: inline-block;
+}
+.sect{
+    display: flex;
+    gap: 7vh;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.a1,.a2,.a3{
+    height: 55vh;
+    width: 35vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    background-color: #fff;
+    align-items: center;
+   box-shadow: 15px 12px 12px 15px rgba(56, 56, 56, 0.178);
+
+}
+.sect img{
+    width: 35vh;
+    height: 30vh;
+}
+
+.sect p{
+    padding: 3%;
+    font-weight: 700;
+    text-align: center;
+}
+
+.page3{
+    margin: 15px;
+    margin-top: 25px;
+    min-height: 95vh;
+    width: calc(100vw - 30px);
+    background-color: #ffffff;
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+
+.left{
+    height: 95vh;
+    width: 50%;
+
+}
+
+.left img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+}
+.right{
+    min-height: 95%;
+    width: 50%;
+    padding-top: 20vh;
+    display: flex;
+    gap: 5vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.right h1{
+    font-size: 5vw;
+}
+
+.right p{
+    text-align: center;
+    width: 70%;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+@media (max-width:950px){
+
+    .page3{
+        flex-direction: column;
+    }
+
+    .left{
+        width:100%;
+        height:50vh;
+    }
+
+    .right{
+        width:100%;
+        padding:40px 20px;
+    }
+
+    .right h1{
+        font-size:10vw;
+    }
+
+    .right p{
+        width:90%;
+        font-size:16px;
+    }
+}
+
+.page4{
+    margin: 15px;
+    height: calc(100vh - 30px);
+    width:calc(100vw - 30px);
+    display: flex;
+    flex-direction: column;
+}
+
+.top{
+    height: 50vh;
+    background-color: #F5F7F6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.top h1{
+    font-size: 4vw;
+}
+
+.top p{
+    font-size: 1.7vw;
+    font-weight: 600;
+}
+
+.top input{
+    padding: 15px 40px;
+    border: none;
+}
+
+.top button{
+    padding: 5px 20px;
+}
+
+.bottom{
+    height: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social{
+    font-size: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.linke{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1vw;
+    gap: 2vh;
+}
+
+@media (max-width:600px) {
+    .social{
+        width: 97%;
+        font-size: 5vh;
+        
+    }
+    .linke{
+        width: 97%;
+        font-size: 2vh;
+    }
+}
