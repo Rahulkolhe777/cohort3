@@ -1,0 +1,437 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f5f5f5;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 1300px;
+    height: 850px;
+    display: flex;
+    position: relative;
+    background: #f5f5f5;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 80px;
+    position: relative;
+    flex-shrink: 0;
+}
+
+.about-me-tab {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    width: 140px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: #222;
+    font-size: 14px;
+    z-index: 20;
+}
+
+.sidebar-text {
+    position: absolute;
+    top: 200px;
+    left: 45px;
+    display: flex;
+    gap: 50px;
+    transform: rotate(90deg);
+    transform-origin: left top;
+    font-size: 14px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Main Content Grid */
+.main-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    grid-template-rows: 150px 1fr 1fr 1fr;
+    gap: 24px;
+    padding: 30px 40px 30px 0;
+}
+
+/* Profile Card */
+.profile-card {
+    grid-column: 1 / 2;
+    grid-row: 1 / 5;
+    position: relative;
+    z-index: 1;
+    background: #8280d5;
+    border-radius: 36px;
+    box-shadow: 0 20px 40px rgba(130, 128, 213, 0.15);
+}
+
+/* Premium Custom Notch via Background Masking */
+.profile-card::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 135px;
+    height: 65px;
+    background: #f5f5f5;
+    border-bottom-right-radius: 36px;
+    z-index: 2;
+}
+/* Inner curved corner for the notch */
+.profile-card::after {
+    content: "";
+    position: absolute;
+    top: 63px;
+    left: -2px;
+    width: 36px;
+    height: 36px;
+    background: transparent;
+    border-top-left-radius: 36px;
+    box-shadow: -15px -15px 0 15px #f5f5f5;
+    z-index: 2;
+}
+
+/* Hide old bg-shape divs since we are using ::before/after for notch */
+.bg-shape { display: none; }
+
+/* Profile Content */
+.profile-content {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 90px 40px 40px;
+}
+
+.profile-img-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ea9cf9, #c18be8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 40px;
+    box-shadow: inset 0 0 0 6px #8280d5, 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.profile-img {
+    width: 176px;
+    height: 176px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%) contrast(1.1);
+    box-shadow: 0 0 0 6px #fff;
+}
+
+.profile-name {
+    font-size: 56px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 1.05;
+    margin-left: 10px;
+    letter-spacing: -1px;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.profile-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.email {
+    font-size: 13px;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+    padding-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.email:hover {
+    border-bottom-color: #fff;
+    transform: translateY(-2px);
+}
+
+.badge {
+    width: 80px;
+    height: 80px;
+    background: #0d0d0d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05) rotate(15deg);
+}
+
+.badge-center {
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.rotating-badge {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    animation: rotate 12s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Grid Layout & Cards */
+.heading-container {
+    grid-column: 2 / 5;
+    grid-row: 1 / 2;
+    display: flex;
+    align-items: flex-end; /* Align bottom to avoid clipping and look grounded */
+    padding-bottom: 10px;
+}
+
+.portfolio-title {
+    font-size: 110px;
+    font-weight: 800;
+    letter-spacing: -4px;
+    color: #111;
+    margin: 0;
+    line-height: 0.85; /* Tighten line height */
+    position: relative;
+    padding-right: 30px;
+}
+
+.corner-mark-title {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-top: 6px solid #111;
+    border-right: 6px solid #111;
+}
+
+/* Premium Card Styles */
+.card {
+    border-radius: 36px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.corner-mark-card {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid rgba(255,255,255,0.7);
+    border-right: 2px solid rgba(255,255,255,0.7);
+    z-index: 5;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .corner-mark-card {
+    transform: translate(2px, -2px);
+}
+
+.corner-mark-card.black-mark,
+.projects-card .corner-mark-card,
+.dual-right .corner-mark-card {
+    border-color: rgba(0,0,0,0.4);
+}
+
+.left-align-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+}
+
+.center-align-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-title {
+    font-size: 50px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -1px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.text-black { color: #111; }
+.text-dark { color: #333; }
+.text-white { color: #fff; }
+
+/* Specific Cards */
+.video-card {
+    grid-column: 2 / 4;
+    grid-row: 2 / 4;
+}
+
+.video-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.video-card:hover .video-img {
+    transform: scale(1.05);
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75px; height: 75px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: #111;
+    font-size: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    padding-left: 6px;
+    z-index: 10;
+}
+
+.play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+    background: #fff;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.projects-card {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+    background: #a9ded3;
+}
+
+.awards-card {
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+    background: #987bcf;
+}
+
+.clients-card {
+    grid-column: 2 / 3;
+    grid-row: 4 / 5;
+    background: #5a5a5a;
+}
+
+.apple-icon {
+    font-size: 56px;
+    color: #fff;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.clients-card:hover .apple-icon {
+    transform: scale(1.1);
+}
+
+/* Dual Card Refinement */
+.dual-card {
+    grid-column: 3 / 5;
+    grid-row: 4 / 5;
+    display: flex;
+}
+
+.dual-left {
+    flex: 1;
+    background: #0d0d0d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* A premium glass/glow effect behind the sphere */
+.dual-left::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(130, 128, 213, 0.4) 0%, transparent 70%);
+    z-index: 0;
+}
+
+.css-sphere {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #ffc3d0 0%, #ff8ba7 20%, #a88be8 60%, #4a4891 100%);
+    box-shadow: inset -15px -15px 30px rgba(0,0,0,0.6), 15px 15px 25px rgba(0,0,0,0.4);
+    z-index: 1;
+    transition: transform 0.4s ease;
+}
+
+.dual-card:hover .css-sphere {
+    transform: rotate(15deg) scale(1.05);
+}
+
+.dual-right {
+    flex: 1;
+    background: #ffd171;
+    position: relative;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
